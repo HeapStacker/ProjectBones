@@ -1,3 +1,5 @@
+# Agent rules
+
 1. REUSE WHAT ALREADY EXISTS — Search the project first. Reuse existing things, don't reinvent the wheel.
 2. ONLY REFACTOR WHEN I ASK FOR IT — KEEP REFACTORING SMALL AND CLEAN. Don't increase code, abstractions, or complexity without a concrete reason.
 3. DO ONLY WHAT WAS REQUESTED — Make the smallest change that solves the task. No unrelated changes.
