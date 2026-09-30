@@ -1,3 +1,5 @@
+set_project("CPB")
+set_version("0.1.0")
 set_languages("c++20")
 
 add_rules("mode.debug", "mode.release")
@@ -15,6 +17,7 @@ end
 
 target("app")
     set_kind("binary")
+    add_includedirs("include")
     add_files("src/*.cpp")
 --
 -- If you want to known more usage about xmake, please see https://xmake.io

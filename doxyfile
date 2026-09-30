@@ -1,0 +1,13 @@
+PROJECT_NAME           = CPB
+OUTPUT_DIRECTORY       = build
+INPUT                  = include
+RECURSIVE              = YES
+FILE_PATTERNS          = *.h *.hpp *.hh *.cpp
+EXCLUDE_PATTERNS       = */build/* */.xmake/* */tests/*
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = NO
+JAVADOC_AUTOBRIEF      = YES
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+QUIET                  = YES
