@@ -1,6 +1,7 @@
 set_languages("c++20")
 
 add_rules("mode.debug", "mode.release")
+set_warnings("all", "error")
 
 if is_plat("windows", "mingw") then
 
