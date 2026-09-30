@@ -5,86 +5,39 @@ set_languages("c++20")
 add_rules("mode.debug", "mode.release")
 set_warnings("all", "error")
 
-if is_plat("windows", "mingw") then
+option("BUILD_DOCS")
+    set_default(true)
+    set_showmenu(true)
+    set_description("Automatically build documentation.")
+option_end()
 
-    print("On windows we should settle for msvc")
-    set_toolchains("msvc")
-
-    add_defines("WIN32_LEAN_AND_MEAN", "NOMINMAX")
-
-    add_cxflags("/utf-8", "/Zc:__cplusplus") -- just for msvc
+if has_config("BUILD_DOCS") then
+    add_requires("doxygen", {system = false})
 end
 
+if is_plat("windows", "mingw") then
+    set_toolchains("msvc")
+    add_defines("WIN32_LEAN_AND_MEAN", "NOMINMAX")
+    add_cxflags("/utf-8", "/Zc:__cplusplus")
+end
+
+-- Pravilo za generiranje dokumentacije
+rule("docs")
+    after_build(function (target)
+        if has_config("BUILD_DOCS") then
+            import("lib.detect.find_tool")
+            local doxygen = find_tool("doxygen")
+            
+            if doxygen then
+                os.vrunv(doxygen.program, {"doxyfile"})
+            end
+        end
+    end)
+rule_end()
+
+-- Primjena na target
 target("app")
     set_kind("binary")
     add_includedirs("include")
     add_files("src/*.cpp")
---
--- If you want to known more usage about xmake, please see https://xmake.io
---
--- ## FAQ
---
--- You can enter the project directory firstly before building project.
---
---   $ cd projectdir
---
--- 1. How to build project?
---
---   $ xmake
---
--- 2. How to configure project?
---
---   $ xmake f -p [macosx|linux|iphoneos ..] -a [x86_64|i386|arm64 ..] -m [debug|release]
---
--- 3. Where is the build output directory?
---
---   The default output directory is `./build` and you can configure the output directory.
---
---   $ xmake f -o outputdir
---   $ xmake
---
--- 4. How to run and debug target after building project?
---
---   $ xmake run [targetname]
---   $ xmake run -d [targetname]
---
--- 5. How to install target to the system directory or other output directory?
---
---   $ xmake install
---   $ xmake install -o installdir
---
--- 6. Add some frequently-used compilation flags in xmake.lua
---
--- @code
---    -- add debug and release modes
---    add_rules("mode.debug", "mode.release")
---
---    -- add macro definition
---    add_defines("NDEBUG", "_GNU_SOURCE=1")
---
---    -- set warning all as error
---    set_warnings("all", "error")
---
---    -- set language: c99, c++11
---    set_languages("c99", "c++11")
---
---    -- set optimization: none, faster, fastest, smallest
---    set_optimize("fastest")
---
---    -- add include search directories
---    add_includedirs("/usr/include", "/usr/local/include")
---
---    -- add link libraries and search directories
---    add_links("tbox")
---    add_linkdirs("/usr/local/lib", "/usr/lib")
---
---    -- add system link libraries
---    add_syslinks("z", "pthread")
---
---    -- add compilation and link flags
---    add_cxflags("-stdnolib", "-fno-strict-aliasing")
---    add_ldflags("-L/usr/local/lib", "-lpthread", {force = true})
---
--- @endcode
---
-
+    add_rules("docs")
