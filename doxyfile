@@ -1,21 +1,22 @@
-PROJECT_NAME           = CPB
-PROJECT_LOGO           = 
-PROJECT_BRIEF          = 
 OUTPUT_DIRECTORY       = build
 INPUT                  = include src README.md
 RECURSIVE              = YES
 FILE_PATTERNS          = *.h *.hpp *.hh *.cpp
 EXCLUDE_PATTERNS       = */build/* */.xmake/* */tests/*
+USE_MDFILE_AS_MAINPAGE = README.md
+HTML_COLORSTYLE        = LIGHT
+HTML_OUTPUT            = html
+
 EXTRACT_ALL            = YES
+GENERATE_HTML          = YES
+JAVADOC_AUTOBRIEF      = YES
+MARKDOWN_SUPPORT       = YES
+QUIET                  = YES
+
 EXTRACT_PRIVATE        = NO
 EXTRACT_STATIC         = NO
-
-GENERATE_HTML          = YES
-HTML_OUTPUT            = html
-HTML_COLORSTYLE        = LIGHT
 GENERATE_TREEVIEW      = NO
 DISABLE_INDEX          = NO
-
 SHOW_NAMESPACES        = NO
 SHOW_FILES             = NO
 SHOW_INCLUDE_FILES     = NO
@@ -30,12 +31,5 @@ CALL_GRAPH             = NO
 CALLER_GRAPH           = NO
 GRAPHICAL_HIERARCHY    = NO
 DIRECTORY_GRAPH        = NO
-
-USE_MDFILE_AS_MAINPAGE = README.md
-MARKDOWN_SUPPORT       = YES
-
-JAVADOC_AUTOBRIEF      = YES
 FULL_PATH_NAMES        = NO
-QUIET                  = YES
-
 GENERATE_LATEX         = NO

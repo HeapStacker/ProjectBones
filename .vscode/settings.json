@@ -22,5 +22,11 @@
     "xmake.runMode": "buildRun",
     "xmake.customDebugConfig": {
         "stopAtEntry": false
+    },
+    "[plaintext]": {
+        "editor.formatOnSave": false
+    },
+    "files.associations": {
+        "doxyfile": "ignore"
     }
 }
