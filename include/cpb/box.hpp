@@ -14,12 +14,6 @@ namespace cpb {
      * 
      * @see Counter
      * @see math.hpp
-     * 
-     * @example
-     * @code
-     * cpb::Box<int> box = cpb::Box<int>::make(42);
-     * std::cout << box.get(); // 42
-     * @endcode
      */
     template <typename T>
     class Box {

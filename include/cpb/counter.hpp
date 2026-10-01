@@ -11,20 +11,6 @@ namespace cpb {
      * @details
      * This class is useful for counting events or objects while
      * also keeping track of how many counters exist in the system.
-     * 
-     * @ingroup utilities
-     * 
-     * @example
-     * @code
-     * cpb::Counter c1;
-     * c1.bump();
-     * c1.bump();
-     * std::cout << c1.value(); // 2
-     * std::cout << cpb::Counter::created(); // 1
-     * 
-     * cpb::Counter c2;
-     * std::cout << cpb::Counter::created(); // 2
-     * @endcode
      */
     class Counter {
     public:

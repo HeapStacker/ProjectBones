@@ -21,7 +21,6 @@ if is_plat("windows", "mingw") then
     add_cxflags("/utf-8", "/Zc:__cplusplus")
 end
 
--- Pravilo za generiranje dokumentacije
 rule("docs")
     after_build(function (target)
         if has_config("BUILD_DOCS") then
@@ -29,13 +28,16 @@ rule("docs")
             local doxygen = find_tool("doxygen")
             
             if doxygen then
+                local ver = get_config("version")
+                
+                os.setenv("PROJECT_VERSION", ver)
                 os.vrunv(doxygen.program, {"doxyfile"})
             end
         end
     end)
 rule_end()
 
--- Primjena na target
+
 target("app")
     set_kind("binary")
     add_includedirs("include")
