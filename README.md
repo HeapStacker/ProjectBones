@@ -17,10 +17,6 @@ ProjectBones is a lightweight C++starter template configured with xmake, designe
 - **Modern C++ Setup:** Configured with modern C++ standards and best practices.
 - **Lightweight Starter:** Minimal footprint, giving you total freedom to build your project.
 
-## ⚙ Best practices
-
-Use Conan2 prebuilt libraries if xrepo packages encounter C++ version compatibility issues.
-
 ## 📦 Installation
 
 ### Using xmake
@@ -36,6 +32,17 @@ xmake run
 
 # Clean build
 xmake clean
+```
+
+## [🎥 ](https://apps.timwhitlock.info/emoji/tables/unicode#emoji-modal)Tiny example
+
+```cpp
+#include <iostream>
+
+int main() {
+    std::cout << "Hello, World!\n";
+    return 0;
+}
 ```
 
 ## 🤝 Contributing
