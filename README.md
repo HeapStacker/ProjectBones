@@ -1,10 +1,8 @@
-![CPB Logo](logo.svg)
+![Logo](logo.svg)
 
 # ProjectBones - C++ starter pack
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)  
-  ![C++](https://img.shields.io/badge/C++-20-orange.svg)  
-  ![Documentation](https://img.shields.io/badge/docs-Doxygen-blueviolet.svg)
+![C++](https://img.shields.io/badge/C++-23-orange.svg)
 
 ## 📖 Overview
 
@@ -44,11 +42,3 @@ int main() {
     return 0;
 }
 ```
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
